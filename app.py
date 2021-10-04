@@ -67,7 +67,7 @@ def login():
         return render_template('login.html')
 
 @app.route('/logout')
-@login_required
+#@login_required
 def logout():
     logout_user()
     return redirect('/')
@@ -76,7 +76,7 @@ def logout():
     
 
 @app.route('/create',methods=['GET','POST'])
-@login_required
+#@login_required
 def create():
     if request.method == 'POST':
         title = request.form.get('title')
@@ -92,7 +92,7 @@ def create():
 
 
 @app.route('/<int:id>/update',methods=['GET','POST'])
-@login_required
+#@login_required
 def update(id):
     post = Post.query.get(id)
     if request.method == 'GET':
@@ -105,7 +105,7 @@ def update(id):
         return redirect('/')
 
 @app.route('/<int:id>/delete',methods=['GET'])
-@login_required
+#@login_required
 def delete(id):
     post = Post.query.get(id)
 
